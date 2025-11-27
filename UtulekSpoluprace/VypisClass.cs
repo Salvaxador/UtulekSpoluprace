@@ -125,7 +125,6 @@ namespace UtulekSpoluprace
                 return;
             }
 
-            // vícero shod -> vyber index
             Console.WriteLine("Našlo se více zvířat. Vyber index, které chceš označit:");
             for (int i = 0; i < matches.Length; i++)
             {
@@ -143,6 +142,17 @@ namespace UtulekSpoluprace
 
             matches[index].AdoptedToggle();
             Console.WriteLine($"Stav adopce pro '{matches[index].Name}' je nyní: {(matches[index].Adopted ? "Adoptováno" : "Neadoptováno")}");
+        }
+
+        public static void Statistiky(Logika service)
+        {
+            Console.WriteLine($"Celkem: {service.PocetCelkem()}");
+            Console.WriteLine($"Adoptovaných: {service.PocetAdoptovanych()}");
+            Console.WriteLine($"Neadoptovaných: {service.PocetNeadoptovanych()}");
+
+            Console.WriteLine("Podle druhu:");
+            foreach (var d in service.PocetPodleDruhu())
+                Console.WriteLine(d);
         }
     }
 }

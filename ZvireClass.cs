@@ -16,6 +16,18 @@ namespace UtulekSpoluprace
             Age = age;
             AnimalType = animalType;
         }
+        
+        public void PrintInfo()
+        {
+            Console.WriteLine($"Name: {Name}");
+            Console.WriteLine($"Adopted: {Adopted}");
+            Console.WriteLine($"Age: {Age}");
+            Console.WriteLine($"Animal Type: {AnimalType}");
+        }
+        public void AdoptedToggle()
+        {
+            Adopted = !Adopted;
+        }
 
     }
 }

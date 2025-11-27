@@ -28,5 +28,45 @@ namespace UtulekSpoluprace
             service.PridatZvire(jmeno, vek, druh);
             Console.WriteLine("Zvíře přidáno!");
         }
+
+        public static void VypisVsechna(Logika service)
+        {
+            var list = service.VsechnaZvire();
+            if (list.Length == 0)
+            {
+                Console.WriteLine("Žádná zvířata v systému.");
+                return;
+            }
+
+            foreach (var z in list)
+            {
+                z.PrintInfo();
+                Console.WriteLine("----------------");
+            }
+        }
+
+        public static void Vyhledat(Logika service)
+        {
+            Console.Write("Jméno (nepovinné): ");
+            string jmeno = Console.ReadLine();
+
+            Console.Write("Druh (nepovinné): ");
+            string druh = Console.ReadLine();
+
+            var list = service.Vyhledat(jmeno, druh, null, null, null);
+
+            if (list.Length == 0)
+            {
+                Console.WriteLine("Nic nenalezeno.");
+                return;
+            }
+
+            for (int i = 0; i < list.Length; i++)
+            {
+                Console.WriteLine($"[{i}]");
+                list[i].PrintInfo();
+                Console.WriteLine("----------------");
+            }
+        }
     }
 }

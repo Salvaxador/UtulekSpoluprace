@@ -8,5 +8,14 @@ namespace UtulekSpoluprace
         public bool Adopted { get; set; }
         public int Age { get; set; }
         public string AnimalType { get; set; }
+       
+        public Zvire(string name, bool adopted, int age, string animalType)
+        {
+            Name = name;
+            Adopted = adopted;
+            Age = age;
+            AnimalType = animalType;
+        }
+
     }
 }
